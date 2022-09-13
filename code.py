@@ -149,7 +149,7 @@ def process_pim_pulse(gas_splotter):
     reducing = gas_reading._RED.value * (gas_reading._RED.reference_voltage / 65535)
     nh3 = gas_reading._NH3.value * (gas_reading._NH3.reference_voltage / 65535)
 
-    print(f"oxi:{oxidizing} red:{reducing} nh3:{nh3}")
+    # print(f"oxi:{oxidizing} red:{reducing} nh3:{nh3}")
 
 
     gas_splotter.update(
@@ -160,13 +160,13 @@ def process_pim_pulse(gas_splotter):
     )
 
     # update the labels
-    gas_splotter.group[1].text = "OX:{}".format(oxidizing)
-    gas_splotter.group[2].text = "RED:{}".format(reducing)
-    gas_splotter.group[3].text = "NH3:{}".format(nh3)
+    gas_splotter.group[1].text = "OX:{:.2f}".format(oxidizing)
+    gas_splotter.group[2].text = "RED:{:.2f}".format(reducing)
+    gas_splotter.group[3].text = "NH3:{:.2f}".format(nh3)
 
     gas_splotter.draw()
 
-    print(str(oxidizing) + " " + str(reducing) + " " + str(nh3))
+    # print(str(oxidizing) + " " + str(reducing) + " " + str(nh3))
 
 
 # # Open-G tuning G4 D3 G3 B3 D4
@@ -414,7 +414,7 @@ while True:
     alt = bme280.altitude
     # sample = abs(mic.value - 32768)
 
-    print(f"temp:{temp} pres:{pres} hum:{hum} alt:{alt}")
+    # print(f"temp:{temp} pres:{pres} hum:{hum} alt:{alt}")
 
         # mic_current = mic.value
 
@@ -478,6 +478,6 @@ while True:
     # pixel.fill((1, 1, 50))
     # pixel.brightness = pix_brightness
 
-    time.sleep(3)  # a little delay here helps avoid debounce annoyances
+    time.sleep(.25)  # a little delay here helps avoid debounce annoyances
     # end loop
     pass
